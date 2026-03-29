@@ -6,7 +6,7 @@
 
     <!-- SEO Meta -->
     <title>AlignAI — Know What's Real | AI Tool Scores for Small Business</title>
-    <meta name="description" content="Review sites work for vendors. We work for you. AlignAI scores 2,671+ AI tools based on real user experiences — not marketing claims. Find what works before you buy.">
+    <meta name="description" content="Stop trusting AI tool reviews written by vendors. AlignAI scores 2,671+ tools for small businesses using real community reviews — no affiliate links, no sponsored rankings, no vendor influence.">
     <meta name="keywords" content="AI tools small business, best AI tools, AI tool reviews, AI tool comparison, AI tool scores, small business AI">
     <link rel="canonical" href="https://alignai.business/">
 
@@ -14,13 +14,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alignai.business/">
     <meta property="og:title" content="AlignAI — Know What's Real">
-    <meta property="og:description" content="Review sites work for vendors. We work for you. 2,671+ AI tools scored by real users, not marketing copy.">
+    <meta property="og:description" content="Stop trusting AI tool reviews written by vendors. AlignAI scores 2,671+ tools for small businesses using real community reviews — no affiliate links, no sponsored rankings.">
     <meta property="og:site_name" content="AlignAI">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AlignAI — Know What's Real">
-    <meta name="twitter:description" content="Review sites work for vendors. We work for you. 2,671+ AI tools scored by real users.">
+    <meta name="twitter:description" content="Stop trusting AI tool reviews written by vendors. AlignAI scores 2,671+ tools using real community reviews — no affiliate links, no vendor influence.">
 
     <!-- JSON-LD Structured Data for AEO -->
     <script type="application/ld+json">
@@ -156,6 +156,62 @@
                 }
             }
             
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is AlignAI?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AlignAI is a scoring platform that rates AI tools for small businesses based on real community reviews — not vendor marketing or affiliate partnerships. It analyzes 16,947+ user experiences across 27 categories to produce honest WORKED, MIXED, or FAILED verdicts on 2,671+ tools."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does AlignAI score AI tools?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AlignAI uses a proprietary 5-Layer Community Intelligence system — not simple star ratings. Our NLP engine analyzes every review for specificity, business context, implementation depth, and sentiment. Reviews are then weighted by source credibility, recency, and detail level — so a detailed 6-month production review counts far more than a vague launch-day comment. The result is a score from 0 to 100 with a community verdict: WORKED (75+), MIXED (50-74), or FAILED (below 50), plus a confidence band showing how much data backs the score. Zero affiliate links. Zero sponsored placements. Every score is earned."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are AI tool review sites trustworthy?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most AI tool review sites are funded by affiliate commissions or sponsored placements, which means the tools ranked highest are often the ones that pay the most — not the ones that work best. AlignAI was built to solve this problem by scoring tools exclusively on real community feedback with full methodology transparency and zero vendor influence."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the best AI tool for small business?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The best AI tool depends on your business type, team size, and specific needs. AlignAI scores 2,671+ tools across 27 categories so you can find the right fit based on what real users in similar businesses actually experienced. You can browse by category or take the ASSESS quiz for personalized recommendations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is AlignAI free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AlignAI is completely free during our launch period. Browse tools, read community verdicts, search by category, compare tools, and save to your stack — all at no cost."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is AlignAI different from G2 or Capterra?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "G2 and Capterra accept vendor payments for premium placements and sponsored rankings. AlignAI has zero sponsored placements and zero affiliate links. AlignAI focuses specifically on small businesses and scores tools using a proprietary 5-Layer Community Intelligence system and transparent methodology — not vendor-submitted reviews."
+                }
+            }
         ]
     }
     </script>
@@ -401,6 +457,45 @@
             color: var(--signal-green);
         }
         .cat-pill-cta:hover { border-color: rgba(0,200,83,0.6); }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 620px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 16px 0;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-q {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--clarity-white);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-q::-webkit-details-marker { display: none; }
+        .faq-q::after {
+            content: '+';
+            color: var(--signal-green);
+            font-size: 18px;
+            font-weight: 400;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+        details[open] .faq-q::after {
+            content: '−';
+        }
+        .faq-a {
+            font-size: 14px;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.65;
+            margin-top: 10px;
+        }
 
         /* EMAIL CAPTURE */
         .email-section {
@@ -674,6 +769,37 @@
                 <a href="#signup" class="cat-pill cat-pill-cta">
                     View all 27 categories
                 </a>
+            </div>
+        </section>
+
+        <!-- FAQ — AEO: directly answers questions AI engines surface -->
+        <section class="section section-dark">
+            <h2 class="section-title">Frequently asked questions</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-q">What is AlignAI?</summary>
+                    <p class="faq-a">AlignAI is a scoring platform that rates AI tools for small businesses based on real community reviews — not vendor marketing or affiliate partnerships. We analyze 16,947+ user experiences across 27 categories to produce honest WORKED, MIXED, or FAILED verdicts on 2,671+ tools.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q">How does AlignAI score AI tools?</summary>
+                    <p class="faq-a">AlignAI uses a proprietary 5-Layer Community Intelligence system — not simple star ratings. Our NLP engine analyzes every review for specificity, business context, implementation depth, and sentiment. Reviews are then weighted by source credibility, recency, and detail level — so a detailed 6-month production review counts far more than a vague launch-day comment. The result is a score from 0 to 100 with a community verdict: WORKED (75+), MIXED (50–74), or FAILED (below 50), plus a confidence band showing how much data backs the score. Zero affiliate links. Zero sponsored placements. Every score is earned.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q">Are AI tool review sites trustworthy?</summary>
+                    <p class="faq-a">Most aren't. The majority of AI tool review sites are funded by affiliate commissions or sponsored placements — the tools ranked highest are often the ones that pay the most, not the ones that work best. AlignAI was built to solve this by scoring tools exclusively on real community feedback with full methodology transparency.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q">What's the best AI tool for my small business?</summary>
+                    <p class="faq-a">It depends on your business type, team size, and specific needs. AlignAI scores 2,671+ tools across 27 categories so you can find the right fit based on what real users in similar businesses actually experienced.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q">Is AlignAI free?</summary>
+                    <p class="faq-a">AlignAI is completely free during our launch period. Browse tools, read community verdicts, search by category, compare tools, and save to your stack — all at no cost.</p>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-q">How is AlignAI different from G2 or Capterra?</summary>
+                    <p class="faq-a">G2 and Capterra accept vendor payments for premium placements and sponsored rankings. AlignAI has zero sponsored placements and zero affiliate links. We focus specifically on small businesses and score tools using a proprietary 5-Layer Community Intelligence system and transparent methodology — not vendor-submitted reviews.</p>
+                </details>
             </div>
         </section>
 
