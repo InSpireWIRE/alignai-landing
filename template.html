@@ -544,15 +544,39 @@
         document.getElementById('signup-form').addEventListener('submit', function(e) {
             e.preventDefault();
             var email = document.getElementById('email-field').value;
-            // TODO: Replace with Supabase insert or Resend API call
-            // For now, store in localStorage and show success
-            try {
-                var signups = JSON.parse(localStorage.getItem('alignai_signups') || '[]');
-                signups.push({ email: email, date: new Date().toISOString() });
-                localStorage.setItem('alignai_signups', JSON.stringify(signups));
-            } catch(err) {}
-            document.getElementById('signup-form').style.display = 'none';
-            document.getElementById('email-success').style.display = 'block';
+            var btn = document.querySelector('.email-submit');
+            btn.textContent = 'Saving...';
+            btn.disabled = true;
+
+            fetch('{{ supabase_url }}/rest/v1/email_signups', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': '{{ supabase_anon_key }}',
+                    'Authorization': 'Bearer {{ supabase_anon_key }}',
+                    'Prefer': 'return=minimal'
+                },
+                body: JSON.stringify({ email: email, source: 'landing_page' })
+            })
+            .then(function(res) {
+                if (res.ok || res.status === 201) {
+                    document.getElementById('signup-form').style.display = 'none';
+                    document.getElementById('email-success').style.display = 'block';
+                } else if (res.status === 409) {
+                    document.getElementById('signup-form').style.display = 'none';
+                    document.getElementById('email-success').textContent = "You're already on the list!";
+                    document.getElementById('email-success').style.display = 'block';
+                } else {
+                    btn.textContent = 'Count me in';
+                    btn.disabled = false;
+                    alert('Something went wrong. Please try again.');
+                }
+            })
+            .catch(function() {
+                btn.textContent = 'Count me in';
+                btn.disabled = false;
+                alert('Connection error. Please try again.');
+            });
         });
     </script>
 </body>

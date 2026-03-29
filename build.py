@@ -75,6 +75,8 @@ def fetch_supabase_data():
             "top_tools": top_tools[:6],
             "top_categories": top_categories,
             "build_date": datetime.utcnow().strftime("%Y-%m-%d"),
+            "supabase_url": url,
+            "supabase_anon_key": key,
         }
 
     except Exception as e:
@@ -107,6 +109,8 @@ def get_fallback_data():
             ("Voice & Audio", 10),
         ],
         "build_date": datetime.utcnow().strftime("%Y-%m-%d"),
+        "supabase_url": os.environ.get("SUPABASE_URL", "https://your-project.supabase.co"),
+        "supabase_anon_key": os.environ.get("SUPABASE_KEY", "your-anon-key"),
     }
 
 
