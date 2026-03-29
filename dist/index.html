@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta -->
-    <title>AlignAI — Know What's Real | AI Tool Scores for Small Business</title>
+    <title>AlignAI — They Rank Who Pays. We Score What Works. | AI Tool Scores for Small Business</title>
     <meta name="description" content="Stop trusting AI tool reviews written by vendors. AlignAI scores 2,671+ tools for small businesses using real community reviews — no affiliate links, no sponsored rankings, no vendor influence.">
     <meta name="keywords" content="AI tools small business, best AI tools, AI tool reviews, AI tool comparison, AI tool scores, small business AI">
     <link rel="canonical" href="https://alignai.business/">
@@ -13,13 +13,13 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alignai.business/">
-    <meta property="og:title" content="AlignAI — Know What's Real">
+    <meta property="og:title" content="AlignAI — They Rank Who Pays. We Score What Works.">
     <meta property="og:description" content="Stop trusting AI tool reviews written by vendors. AlignAI scores 2,671+ tools for small businesses using real community reviews — no affiliate links, no sponsored rankings.">
     <meta property="og:site_name" content="AlignAI">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AlignAI — Know What's Real">
+    <meta name="twitter:title" content="AlignAI — They Rank Who Pays. We Score What Works.">
     <meta name="twitter:description" content="Stop trusting AI tool reviews written by vendors. AlignAI scores 2,671+ tools using real community reviews — no affiliate links, no vendor influence.">
 
     <!-- JSON-LD Structured Data for AEO -->
@@ -613,7 +613,7 @@
         <!-- HERO -->
         <section class="hero">
             <p class="hero-eyebrow">AI tools for small business</p>
-            <h1>Know what's real.</h1>
+            <h1>They rank who pays.<br>We score what works.</h1>
             <p class="hero-body">
                 <span class="power-line">Review sites work for vendors. We work for you.</span>
                 We built a scoring platform powered by real user experiences — so you know what works before you buy.
@@ -632,15 +632,15 @@
         <!-- STATS BAR -->
         <section class="stats">
             <div class="stat">
-                <div class="stat-number green">2,671</div>
+                <div class="stat-number green" data-target="2671">0</div>
                 <div class="stat-label">Tools scored</div>
             </div>
             <div class="stat">
-                <div class="stat-number green">16,947</div>
+                <div class="stat-number green" data-target="16947">0</div>
                 <div class="stat-label">Real reviews</div>
             </div>
             <div class="stat">
-                <div class="stat-number green">27</div>
+                <div class="stat-number green" data-target="27">0</div>
                 <div class="stat-label">Categories</div>
             </div>
             <div class="stat">
@@ -869,6 +869,40 @@
                 alert('Connection error. Please try again.');
             });
         });
+    </script>
+    <script>
+        function animateCounters() {
+            var counters = document.querySelectorAll('[data-target]');
+            counters.forEach(function(counter) {
+                var target = parseInt(counter.getAttribute('data-target'));
+                var duration = 2000;
+                var start = 0;
+                var startTime = null;
+                function step(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    var progress = Math.min((timestamp - startTime) / duration, 1);
+                    var eased = 1 - Math.pow(1 - progress, 3);
+                    var current = Math.floor(eased * target);
+                    counter.textContent = current.toLocaleString();
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        counter.textContent = target.toLocaleString();
+                    }
+                }
+                requestAnimationFrame(step);
+            });
+        }
+        var statsSection = document.querySelector('.stats');
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        observer.observe(statsSection);
     </script>
 </body>
 </html>
