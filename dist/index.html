@@ -830,8 +830,17 @@
 
     </div>
 
-    <!-- EMAIL FORM HANDLER -->
+    <!-- EMAIL FORM HANDLER (with UTM tracking) -->
     <script>
+        // Capture UTM params + referrer on page load
+        var params = new URLSearchParams(window.location.search);
+        var utmData = {
+            utm_source: params.get('utm_source') || null,
+            utm_medium: params.get('utm_medium') || null,
+            utm_campaign: params.get('utm_campaign') || null,
+            referrer: document.referrer || null
+        };
+
         document.getElementById('signup-form').addEventListener('submit', function(e) {
             e.preventDefault();
             var email = document.getElementById('email-field').value;
@@ -847,7 +856,14 @@
                     'Authorization': 'Bearer sb_publishable_sNPKZFuhATv5eJka-RUCag_QKnCwE6M',
                     'Prefer': 'return=minimal'
                 },
-                body: JSON.stringify({ email: email, source: 'landing_page' })
+                body: JSON.stringify({
+                    email: email,
+                    source: 'landing_page',
+                    utm_source: utmData.utm_source,
+                    utm_medium: utmData.utm_medium,
+                    utm_campaign: utmData.utm_campaign,
+                    referrer: utmData.referrer
+                })
             })
             .then(function(res) {
                 if (res.ok || res.status === 201) {
