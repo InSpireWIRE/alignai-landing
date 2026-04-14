@@ -527,7 +527,7 @@
                 <span class="bracket">[</span><span class="align">align</span><span class="ai">.ai</span><span class="bracket">]</span>
             </a>
             <!-- PRE-LAUNCH: scroll to signup. POST-LAUNCH: swap to app.alignai.business -->
-            <a href="#signup" class="nav-cta">Explore tools</a>
+            <a href="https://app.alignai.business" class="nav-cta">Explore tools</a>
         </nav>
 
         <!-- HERO -->
@@ -540,8 +540,8 @@
             </p>
             <div class="hero-buttons">
                 <!-- PRE-LAUNCH: scroll to email capture. POST-LAUNCH: swap to app.alignai.business links -->
-                <a href="#signup" class="btn-primary">Find your AI win</a>
-                <a href="#signup" class="btn-secondary">Browse all tools</a>
+                <a href="https://app.alignai.business" class="btn-primary">Find your AI win</a>
+                <a href="https://app.alignai.business" class="btn-secondary">Browse all tools</a>
                 <!-- POST-LAUNCH (uncomment these, delete above):
                 <a href="https://app.alignai.business/?tab=assess" class="btn-primary">Find your AI win</a>
                 <a href="https://app.alignai.business/?tab=browse" class="btn-secondary">Browse all tools</a>
@@ -579,7 +579,7 @@
             <div class="tools-grid">
                 {% for tool in top_tools %}
                 <!-- PRE-LAUNCH: scroll to signup. POST-LAUNCH: swap href to app.alignai.business/?tool={{ tool.slug }} -->
-                <a href="#signup" class="tool-card">
+                <a href="https://app.alignai.business" class="tool-card">
                     <div class="tool-header">
                         <span class="tool-name">{{ tool.name }}</span>
                         <span class="score-badge {% if tool.critics_score >= 75 %}score-green{% elif tool.critics_score >= 50 %}score-amber{% else %}score-red{% endif %}">{{ tool.critics_score }}</span>
@@ -597,11 +597,11 @@
             <div class="category-pills">
                 {% for cat_name, cat_count in top_categories %}
                 <!-- PRE-LAUNCH: scroll to signup. POST-LAUNCH: swap href to app.alignai.business/?cat=... -->
-                <a href="#signup" class="cat-pill">
+                <a href="https://app.alignai.business" class="cat-pill">
                     {{ cat_name }} <span class="count">{{ cat_count }}</span>
                 </a>
                 {% endfor %}
-                <a href="#signup" class="cat-pill cat-pill-cta">
+                <a href="https://app.alignai.business" class="cat-pill cat-pill-cta">
                     View all {{ total_categories }} categories
                 </a>
             </div>
@@ -641,15 +641,15 @@
         <!-- EMAIL CAPTURE -->
         <section class="email-section" id="signup">
             <!-- PRE-LAUNCH: remove this line when app is live -->
-            <p style="color: #00C853; font-size: 14px; font-weight: 500; margin-bottom: 12px;">We're putting the finishing touches on {{ total_tools }} scored tools across {{ total_categories }} categories.</p>
-            <h2 class="email-title">Get in early.</h2>
-            <p class="email-body">Be first to access AlignAI when we launch — plus get a weekly digest of top-scored tools and new community reviews. No spam. Unsubscribe anytime.</p>
+            <p style="color: #00C853; font-size: 14px; font-weight: 500; margin-bottom: 12px;">Browse {{ total_tools }} scored tools across {{ total_categories }} categories.</p>
+            <h2 class="email-title">Stay in the loop.</h2>
+            <p class="email-body">Get a weekly digest of top-scored tools and new community reviews. No spam. Unsubscribe anytime.</p>
             <form class="email-form" id="signup-form">
                 <input type="email" class="email-input" placeholder="you@yourbusiness.com" required id="email-field">
                 <button type="submit" class="email-submit">Count me in</button>
             </form>
             <p class="email-success" id="email-success">You're in! We'll be in touch soon.</p>
-            <p class="email-footnote">Not sure where to start? Our ASSESS quiz matches you with the right AI tools in 2 minutes — available at launch.</p>
+            <p class="email-footnote">Not sure where to start? Browse 385+ scored tools or search by category to find what works for your business.</p>
         </section>
 
         <!-- FOOTER -->
