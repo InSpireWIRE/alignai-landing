@@ -112,13 +112,6 @@
             "@type": "Organization",
             "name": "InSpireWIRE Productions",
             "url": "https://alignai.business"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingCount": {{ total_reviews | replace(",", "") }},
-            "reviewCount": {{ total_reviews | replace(",", "") }},
-            "bestRating": 100,
-            "worstRating": 0
         }
     }
     </script>
@@ -137,13 +130,7 @@
                 "item": {
                     "@type": "SoftwareApplication",
                     "name": "{{ tool.name }}",
-                    "applicationCategory": "{{ tool.category }}",
-                    "aggregateRating": {
-                        "@type": "AggregateRating",
-                        "ratingValue": {{ tool.critics_score }},
-                        "bestRating": 100,
-                        "worstRating": 0
-                    }
+                    "applicationCategory": "{{ tool.category }}"
                 }
             }{% if not loop.last %},{% endif %}
             {% endfor %}
@@ -710,69 +697,49 @@
             </div>
         </section>
 
-        <!-- FAQ — AEO: directly answers questions AI engines surface -->
-        <section class="section section-dark" id="faq" itemscope itemtype="https://schema.org/FAQPage">
+        <!-- FAQ — visible content; structured data lives in JSON-LD (no duplicate microdata) -->
+        <section class="section section-dark" id="faq">
             <h2 class="section-title">Frequently asked questions</h2>
             <div class="faq-list">
-                <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" open>
-                    <summary class="faq-q" itemprop="name">What is AlignAI?</summary>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-a" itemprop="text">AlignAI is a scoring platform that rates AI tools for small businesses based on real community reviews — not vendor marketing or affiliate partnerships. We analyze {{ total_reviews }}+ user experiences across {{ total_categories }} categories to produce honest WORKED, MIXED, or FAILED verdicts on {{ total_tools }}+ tools.</p>
-                    </div>
+                <details class="faq-item" open>
+                    <summary class="faq-q">What is AlignAI?</summary>
+                    <p class="faq-a">AlignAI is a scoring platform that rates AI tools for small businesses based on real community reviews — not vendor marketing or affiliate partnerships. We analyze {{ total_reviews }}+ user experiences across {{ total_categories }} categories to produce honest WORKED, MIXED, or FAILED verdicts on {{ total_tools }}+ tools.</p>
                 </details>
-                <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <summary class="faq-q" itemprop="name">How does AlignAI score AI tools?</summary>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-a" itemprop="text">AlignAI uses a proprietary 5-Layer Community Intelligence system — not simple star ratings. Our NLP engine analyzes every review for specificity, business context, implementation depth, and sentiment. Reviews are weighted by source credibility, recency, and detail — a 6-month production review counts far more than a vague launch-day comment. The result is a score from 0 to 100 with a community verdict: WORKED (75+), MIXED (50–74), or FAILED (below 50), plus a confidence band. Zero affiliate links. Zero sponsored placements.</p>
-                    </div>
+                <details class="faq-item">
+                    <summary class="faq-q">How does AlignAI score AI tools?</summary>
+                    <p class="faq-a">AlignAI uses a proprietary 5-Layer Community Intelligence system — not simple star ratings. Our NLP engine analyzes every review for specificity, business context, implementation depth, and sentiment. Reviews are weighted by source credibility, recency, and detail — a 6-month production review counts far more than a vague launch-day comment. The result is a score from 0 to 100 with a community verdict: WORKED (75+), MIXED (50–74), or FAILED (below 50), plus a confidence band. Zero affiliate links. Zero sponsored placements.</p>
                 </details>
-                <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <summary class="faq-q" itemprop="name">Are AI tool review sites trustworthy?</summary>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-a" itemprop="text">Most aren't. The majority of AI tool review sites are funded by affiliate commissions or sponsored placements — the tools ranked highest are often the ones that pay the most, not the ones that work best. AlignAI was built to solve this by scoring tools exclusively on real community feedback with full methodology transparency.</p>
-                    </div>
+                <details class="faq-item">
+                    <summary class="faq-q">Are AI tool review sites trustworthy?</summary>
+                    <p class="faq-a">Most aren't. The majority of AI tool review sites are funded by affiliate commissions or sponsored placements — the tools ranked highest are often the ones that pay the most, not the ones that work best. AlignAI was built to solve this by scoring tools exclusively on real community feedback with full methodology transparency.</p>
                 </details>
-                <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <summary class="faq-q" itemprop="name">What's the best AI tool for my small business?</summary>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-a" itemprop="text">It depends on your business type, team size, and specific needs. AlignAI scores {{ total_tools }}+ tools across {{ total_categories }} categories so you can find the right fit based on what real users in similar businesses actually experienced.</p>
-                    </div>
+                <details class="faq-item">
+                    <summary class="faq-q">What's the best AI tool for my small business?</summary>
+                    <p class="faq-a">It depends on your business type, team size, and specific needs. AlignAI scores {{ total_tools }}+ tools across {{ total_categories }} categories so you can find the right fit based on what real users in similar businesses actually experienced.</p>
                 </details>
-                <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <summary class="faq-q" itemprop="name">Is AlignAI free?</summary>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-a" itemprop="text">AlignAI is completely free during our launch period. Browse tools, read community verdicts, search by category, compare tools, and save to your stack — all at no cost.</p>
-                    </div>
+                <details class="faq-item">
+                    <summary class="faq-q">Is AlignAI free?</summary>
+                    <p class="faq-a">AlignAI is completely free during our launch period. Browse tools, read community verdicts, search by category, compare tools, and save to your stack — all at no cost.</p>
                 </details>
-                <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <summary class="faq-q" itemprop="name">How is AlignAI different from G2 or Capterra?</summary>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-a" itemprop="text">G2 and Capterra accept vendor payments for premium placements and sponsored rankings. AlignAI has zero sponsored placements and zero affiliate links. We focus specifically on small businesses and score tools using a proprietary 5-Layer Community Intelligence system and transparent methodology — not vendor-submitted reviews.</p>
-                    </div>
+                <details class="faq-item">
+                    <summary class="faq-q">How is AlignAI different from G2 or Capterra?</summary>
+                    <p class="faq-a">G2 and Capterra accept vendor payments for premium placements and sponsored rankings. AlignAI has zero sponsored placements and zero affiliate links. We focus specifically on small businesses and score tools using a proprietary 5-Layer Community Intelligence system and transparent methodology — not vendor-submitted reviews.</p>
                 </details>
-                <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <summary class="faq-q" itemprop="name">Who is AlignAI built for?</summary>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-a" itemprop="text">AlignAI is built for small business owners, solopreneurs, and lean teams who need to pick the right AI tool without wading through vendor-sponsored review sites. Every score, verdict and review is filtered for small-business context — so you see what works at 1–50 people, not at Fortune 500 scale.</p>
-                    </div>
+                <details class="faq-item">
+                    <summary class="faq-q">Who is AlignAI built for?</summary>
+                    <p class="faq-a">AlignAI is built for small business owners, solopreneurs, and lean teams who need to pick the right AI tool without wading through vendor-sponsored review sites. Every score, verdict and review is filtered for small-business context — so you see what works at 1–50 people, not at Fortune 500 scale.</p>
                 </details>
-                <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <summary class="faq-q" itemprop="name">How often are AI tool scores updated?</summary>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-a" itemprop="text">Tool scores are recomputed continuously as new community reviews arrive, and the homepage stats and top-rated list rebuild daily. When an AI tool ships a major update, model change, or pricing change, we flag affected reviews and re-weight them — so the score reflects the current version of the tool, not the version reviewed 18 months ago.</p>
-                    </div>
+                <details class="faq-item">
+                    <summary class="faq-q">How often are AI tool scores updated?</summary>
+                    <p class="faq-a">Tool scores are recomputed continuously as new community reviews arrive, and the homepage stats and top-rated list rebuild daily. When an AI tool ships a major update, model change, or pricing change, we flag affected reviews and re-weight them — so the score reflects the current version of the tool, not the version reviewed 18 months ago.</p>
                 </details>
-                <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <summary class="faq-q" itemprop="name">Can I submit a review for an AI tool?</summary>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-a" itemprop="text">Yes. Community reviews are the foundation of every score. Any verified small-business user can submit a review, describe their use case and team size, and tag the outcome as WORKED, MIXED or FAILED. Detailed reviews with business context and implementation depth are weighted more heavily than short one-liners.</p>
-                    </div>
+                <details class="faq-item">
+                    <summary class="faq-q">Can I submit a review for an AI tool?</summary>
+                    <p class="faq-a">Yes. Community reviews are the foundation of every score. Any verified small-business user can submit a review, describe their use case and team size, and tag the outcome as WORKED, MIXED or FAILED. Detailed reviews with business context and implementation depth are weighted more heavily than short one-liners.</p>
                 </details>
-                <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <summary class="faq-q" itemprop="name">Does AlignAI take affiliate commissions or sponsored placements?</summary>
-                    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p class="faq-a" itemprop="text">No. AlignAI has zero affiliate links and zero sponsored placements. Vendors cannot pay to appear, pay to rank higher, or pay to remove reviews. The scoring methodology is public and audit-friendly. This is the core product promise: they rank who pays, we score what works.</p>
-                    </div>
+                <details class="faq-item">
+                    <summary class="faq-q">Does AlignAI take affiliate commissions or sponsored placements?</summary>
+                    <p class="faq-a">No. AlignAI has zero affiliate links and zero sponsored placements. Vendors cannot pay to appear, pay to rank higher, or pay to remove reviews. The scoring methodology is public and audit-friendly. This is the core product promise: they rank who pays, we score what works.</p>
                 </details>
             </div>
         </section>
