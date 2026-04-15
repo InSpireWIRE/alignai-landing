@@ -118,6 +118,87 @@ def get_fallback_data():
 # 2. Render the template
 # ---------------------------------------------------------------------------
 
+SITE_URL = "https://alignai.business"
+
+
+def build_sitemap():
+    """Generate dist/sitemap.xml with homepage + any known routes."""
+    now_iso = datetime.utcnow().strftime("%Y-%m-%d")
+    urls = [
+        (SITE_URL + "/", now_iso, "daily", "1.0"),
+        # Anchors within homepage also discoverable via these fragments;
+        # add real routes here as the site grows (e.g. /about, /methodology).
+    ]
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>']
+    lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+    for loc, lastmod, changefreq, priority in urls:
+        lines.append("  <url>")
+        lines.append(f"    <loc>{loc}</loc>")
+        lines.append(f"    <lastmod>{lastmod}</lastmod>")
+        lines.append(f"    <changefreq>{changefreq}</changefreq>")
+        lines.append(f"    <priority>{priority}</priority>")
+        lines.append("  </url>")
+    lines.append("</urlset>")
+    with open("dist/sitemap.xml", "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    print(f"   + dist/sitemap.xml ({len(urls)} url)")
+
+
+def build_robots():
+    """Generate dist/robots.txt with an explicit AI crawler allow-list."""
+    content = f"""# AlignAI
+# Allow all well-behaved crawlers including AI answer engines.
+
+User-agent: *
+Allow: /
+
+# AI answer engines (explicit allow-listing for visibility)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: {SITE_URL}/sitemap.xml
+"""
+    with open("dist/robots.txt", "w", encoding="utf-8") as f:
+        f.write(content)
+    print("   + dist/robots.txt")
+
+
 def build():
     data = fetch_supabase_data()
 
@@ -133,6 +214,10 @@ def build():
     print(f"✅ Built dist/index.html — {data['total_tools']} tools, {data['total_reviews']} reviews, {data['total_categories']} categories")
     print(f"   Top tools: {', '.join(t['name'] for t in data['top_tools'])}")
     print(f"   Build date: {data['build_date']}")
+
+    # SEO / AEO infrastructure
+    build_sitemap()
+    build_robots()
 
 
 if __name__ == "__main__":
