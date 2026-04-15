@@ -127,11 +127,8 @@
             {
                 "@type": "ListItem",
                 "position": {{ loop.index }},
-                "item": {
-                    "@type": "SoftwareApplication",
-                    "name": "{{ tool.name }}",
-                    "applicationCategory": "{{ tool.category }}"
-                }
+                "name": "{{ tool.name }}",
+                "url": "https://app.alignai.business/tool/{{ tool.slug }}"
             }{% if not loop.last %},{% endif %}
             {% endfor %}
         ]
