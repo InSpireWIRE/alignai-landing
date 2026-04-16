@@ -332,6 +332,11 @@
             transition: opacity 0.2s;
         }
         .btn-primary:hover { opacity: 0.9; }
+        .btn-hero-cta {
+            font-size: 17px;
+            padding: 16px 40px;
+            border-radius: 32px;
+        }
         .btn-secondary {
             border: 1px solid rgba(255,255,255,0.2);
             color: var(--clarity-white);
@@ -626,13 +631,8 @@
                 We built a scoring platform powered by real user experiences — so you know what works before you buy.
             </p>
             <div class="hero-buttons">
-                <!-- PRE-LAUNCH: scroll to email capture. POST-LAUNCH: swap to app.alignai.business links -->
-                <a href="https://app.alignai.business" class="btn-primary">Find your AI win</a>
-                <a href="https://app.alignai.business" class="btn-secondary">Browse all tools</a>
-                <!-- POST-LAUNCH (uncomment these, delete above):
-                <a href="https://app.alignai.business/?tab=assess" class="btn-primary">Find your AI win</a>
-                <a href="https://app.alignai.business/?tab=browse" class="btn-secondary">Browse all tools</a>
-                -->
+                <!-- PRE-LAUNCH: single CTA to app. POST-LAUNCH: swap href to ?tab=browse -->
+                <a href="https://app.alignai.business" class="btn-primary btn-hero-cta">Browse Tools</a>
             </div>
         </section>
 
