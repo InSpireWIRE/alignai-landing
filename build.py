@@ -27,9 +27,11 @@ def fetch_supabase_data():
         from supabase import create_client
         sb = create_client(url, key)
 
-        # Total published tools
-        tools_resp = sb.table("tools").select("id", count="exact").eq("status", "published").execute()
-        total_tools = tools_resp.count or 0
+        # Canonical "tools scored" count = distinct tools with >=1 review.
+        # Shared with the Streamlit app via the count_tools_with_reviews RPC
+        # so both surfaces stay in sync. See docs/bugs/BUG_tool_count_mismatch.md.
+        tools_resp = sb.rpc("count_tools_with_reviews").execute()
+        total_tools = tools_resp.data or 0
 
         # Total reviews
         reviews_resp = sb.table("validation_comments").select("id", count="exact").execute()
