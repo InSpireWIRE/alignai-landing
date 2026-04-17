@@ -295,9 +295,19 @@
             font-weight: 500;
             margin-bottom: 14px;
         }
+        .hero-eyebrow-lead {
+            color: #00C853;
+            font-weight: 700;
+            font-size: clamp(28px, 5vw, 48px);
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            font-family: 'DM Sans', system-ui, sans-serif;
+        }
         .hero h1 {
             font-family: 'Fraunces', Georgia, serif;
-            font-size: clamp(32px, 5vw, 48px);
+            font-size: clamp(22px, 3.5vw, 36px);
             font-weight: 600;
             margin-bottom: 20px;
             line-height: 1.15;
@@ -627,7 +637,7 @@
 
         <!-- HERO -->
         <section class="hero">
-            <p class="hero-eyebrow">AI INTELLIGENCE FOR SMALL BUSINESS</p>
+            <p class="hero-eyebrow-lead">AI INTELLIGENCE FOR SMALL BUSINESS</p>
             <h1>Find it. Trust it. Use it.</h1>
             <p class="hero-body">
                 AI tools, prompts, and insights — scored by real users, not sponsors. Built for small businesses navigating AI without a CTO.
@@ -639,38 +649,40 @@
 
         <!-- PRODUCT: BROWSE AI TOOLS -->
         <section class="section section-dark">
+            <!-- 1. Eyebrow + H2 + subhead (narrow) -->
             <div style="max-width: 620px; margin: 0 auto;">
                 <p class="hero-eyebrow" style="text-align: center;">BROWSE AI TOOLS</p>
                 <h2 style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(24px, 4vw, 36px); font-weight: 600; text-align: center; margin-bottom: 16px; line-height: 1.2;">They rank who pays.<br>We score what works.</h2>
                 <p style="color: rgba(255,255,255,0.65); font-size: 16px; line-height: 1.7; text-align: center; margin-bottom: 28px;">6,000+ AI tools scored by our proprietary 5-Layer Community Intelligence system. Real verdicts from 22,000+ user reviews scraped from Reddit, Product Hunt, and Hacker News — not marketing copy, not affiliate listicles. See what actually works for businesses like yours.</p>
+            </div>
 
-                <!-- STATS BAR -->
-                <section class="stats">
-                    <div class="stat">
-                        <div class="stat-number green" data-target="{{ total_tools | replace(',', '') }}">0</div>
-                        <div class="stat-label">Tools scored</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number green" data-target="{{ total_reviews | replace(',', '') }}">0</div>
-                        <div class="stat-label">Real reviews</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number green" data-target="{{ total_categories }}">0</div>
-                        <div class="stat-label">Categories</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number white">0</div>
-                        <div class="stat-label">Affiliate links</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number white">0</div>
-                        <div class="stat-label">Sponsored placements</div>
-                    </div>
-                </section>
-
-                <div style="text-align: center;">
-                    <a href="https://app.alignai.business" class="btn-primary">Explore AI Tools &rarr;</a>
+            <!-- 2. Stats bar (full section width) -->
+            <section class="stats" style="margin: 40px auto;">
+                <div class="stat">
+                    <div class="stat-number green" data-target="{{ total_tools | replace(',', '') }}">0</div>
+                    <div class="stat-label">Tools scored</div>
                 </div>
+                <div class="stat">
+                    <div class="stat-number green" data-target="{{ total_reviews | replace(',', '') }}">0</div>
+                    <div class="stat-label">Real reviews</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number green" data-target="{{ total_categories }}">0</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number white">0</div>
+                    <div class="stat-label">Affiliate links</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number white">0</div>
+                    <div class="stat-label">Sponsored placements</div>
+                </div>
+            </section>
+
+            <!-- 3. CTA button (narrow, centered) -->
+            <div style="max-width: 620px; margin: 0 auto; text-align: center;">
+                <a href="https://app.alignai.business" class="btn-primary">Explore AI Tools &rarr;</a>
             </div>
         </section>
 
