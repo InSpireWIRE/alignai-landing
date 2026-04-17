@@ -179,7 +179,7 @@
                 "name": "What is AlignAI?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "AlignAI is a scoring platform that rates AI tools for small businesses based on real community reviews — not vendor marketing or affiliate partnerships. It analyzes 22,468+ user experiences across 27 categories to produce honest WORKED, MIXED, or FAILED verdicts on 5,427+ tools."
+                    "text": "AlignAI is an AI intelligence platform for small businesses. We score AI tools, curate field-tested prompts, and share insights to help SMBs find, trust, and use AI without a CTO. Everything is powered by real community data — 22,000+ user reviews, 5,400+ tools scored, and 296 prompt variants across Claude, ChatGPT, Gemini, and Copilot. No vendor marketing. No affiliate partnerships."
                 }
             },
             {
@@ -211,7 +211,7 @@
                 "name": "Is AlignAI free?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "AlignAI is completely free during our launch period. Browse tools, read community verdicts, search by category, compare tools, and save to your stack — all at no cost."
+                    "text": "Yes. Both Browse AI Tools (app.alignai.business) and Prompt Hub (prompts.alignai.business) are free to use during our launch period. Browse scored tools, read community verdicts, search by category, compare tools, save to your stack, and copy any of 296 model-specific prompt variants — all at no cost."
                 }
             },
             {
@@ -219,7 +219,7 @@
                 "name": "How is AlignAI different from G2 or Capterra?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "G2 and Capterra accept vendor payments for premium placements and sponsored rankings. AlignAI has zero sponsored placements and zero affiliate links. AlignAI focuses specifically on small businesses and scores tools using a proprietary 5-Layer Community Intelligence system and transparent methodology — not vendor-submitted reviews."
+                    "text": "G2 and Capterra are review sites for enterprise software with affiliate revenue models. AlignAI is an AI intelligence platform built specifically for small businesses — we score AI tools, curate prompts, and share insights using real community data from Reddit, Hacker News, Product Hunt, Indie Hackers, and AlternativeTo. Zero affiliate links. Zero sponsored placements. Our scoring uses a proprietary 5-Layer Community Intelligence system with full methodology transparency — not vendor-submitted reviews."
                 }
             },
             {
@@ -227,7 +227,7 @@
                 "name": "Who is AlignAI built for?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "AlignAI is built for small business owners, solopreneurs, and lean teams who need to pick the right AI tool without wading through vendor-sponsored review sites. Every score, verdict and review is filtered for small-business context — so you see what works at 1-50 people, not at Fortune 500 scale."
+                    "text": "AlignAI is built for small business owners, solopreneurs, and lean teams navigating AI without a CTO. Whether you're choosing an AI tool, copying a field-tested prompt, or acting on community insights, everything is filtered for small-business context — so you see what works at 1-50 people, not at Fortune 500 scale."
                 }
             },
             {
@@ -326,7 +326,7 @@
         }
         .hero-eyebrow {
             color: var(--signal-green);
-            font-size: 15px;
+            font-size: 18px;
             font-weight: 500;
             margin-bottom: 14px;
         }
@@ -654,7 +654,10 @@
                 <span class="bracket">[</span><span class="align">align</span><span class="ai">.ai</span><span class="bracket">]</span>
             </a>
             <!-- PRE-LAUNCH: scroll to signup. POST-LAUNCH: swap to app.alignai.business -->
-            <a href="https://app.alignai.business" class="nav-cta">Explore tools</a>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <a href="https://app.alignai.business" class="nav-cta">Explore tools</a>
+                <a href="https://prompts.alignai.business" class="nav-cta">Explore prompts</a>
+            </div>
         </nav>
 
         <!-- HERO -->
@@ -669,36 +672,37 @@
             </div>
         </section>
 
-        <!-- STATS BAR -->
-        <section class="stats">
-            <div class="stat">
-                <div class="stat-number green" data-target="5427">0</div>
-                <div class="stat-label">Tools scored</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number green" data-target="22468">0</div>
-                <div class="stat-label">Real reviews</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number green" data-target="27">0</div>
-                <div class="stat-label">Categories</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number white">0</div>
-                <div class="stat-label">Affiliate links</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number white">0</div>
-                <div class="stat-label">Sponsored placements</div>
-            </div>
-        </section>
-
         <!-- PRODUCT: BROWSE AI TOOLS -->
         <section class="section section-dark">
             <div style="max-width: 620px; margin: 0 auto;">
                 <p class="hero-eyebrow" style="text-align: center;">BROWSE AI TOOLS</p>
                 <h2 style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(24px, 4vw, 36px); font-weight: 600; text-align: center; margin-bottom: 16px; line-height: 1.2;">They rank who pays.<br>We score what works.</h2>
                 <p style="color: rgba(255,255,255,0.65); font-size: 16px; line-height: 1.7; text-align: center; margin-bottom: 28px;">6,000+ AI tools scored by our proprietary 5-Layer Community Intelligence system. Real verdicts from 22,000+ user reviews scraped from Reddit, Product Hunt, and Hacker News — not marketing copy, not affiliate listicles. See what actually works for businesses like yours.</p>
+
+                <!-- STATS BAR -->
+                <section class="stats">
+                    <div class="stat">
+                        <div class="stat-number green" data-target="5427">0</div>
+                        <div class="stat-label">Tools scored</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number green" data-target="22468">0</div>
+                        <div class="stat-label">Real reviews</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number green" data-target="27">0</div>
+                        <div class="stat-label">Categories</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number white">0</div>
+                        <div class="stat-label">Affiliate links</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number white">0</div>
+                        <div class="stat-label">Sponsored placements</div>
+                    </div>
+                </section>
+
                 <div style="text-align: center;">
                     <a href="https://app.alignai.business" class="btn-primary">Explore AI Tools &rarr;</a>
                 </div>
@@ -842,7 +846,7 @@
             <div class="faq-list">
                 <details class="faq-item" open>
                     <summary class="faq-q">What is AlignAI?</summary>
-                    <p class="faq-a">AlignAI is a scoring platform that rates AI tools for small businesses based on real community reviews — not vendor marketing or affiliate partnerships. We analyze 22,468+ user experiences across 27 categories to produce honest WORKED, MIXED, or FAILED verdicts on 5,427+ tools.</p>
+                    <p class="faq-a">AlignAI is an AI intelligence platform for small businesses. We score AI tools, curate field-tested prompts, and share insights to help SMBs find, trust, and use AI without a CTO. Everything is powered by real community data — 22,000+ user reviews, 5,400+ tools scored, and 296 prompt variants across Claude, ChatGPT, Gemini, and Copilot. No vendor marketing. No affiliate partnerships.</p>
                 </details>
                 <details class="faq-item">
                     <summary class="faq-q">How does AlignAI score AI tools?</summary>
@@ -858,15 +862,15 @@
                 </details>
                 <details class="faq-item">
                     <summary class="faq-q">Is AlignAI free?</summary>
-                    <p class="faq-a">AlignAI is completely free during our launch period. Browse tools, read community verdicts, search by category, compare tools, and save to your stack — all at no cost.</p>
+                    <p class="faq-a">Yes. Both Browse AI Tools (app.alignai.business) and Prompt Hub (prompts.alignai.business) are free to use during our launch period. Browse scored tools, read community verdicts, search by category, compare tools, save to your stack, and copy any of 296 model-specific prompt variants — all at no cost.</p>
                 </details>
                 <details class="faq-item">
                     <summary class="faq-q">How is AlignAI different from G2 or Capterra?</summary>
-                    <p class="faq-a">G2 and Capterra accept vendor payments for premium placements and sponsored rankings. AlignAI has zero sponsored placements and zero affiliate links. We focus specifically on small businesses and score tools using a proprietary 5-Layer Community Intelligence system and transparent methodology — not vendor-submitted reviews.</p>
+                    <p class="faq-a">G2 and Capterra are review sites for enterprise software with affiliate revenue models. AlignAI is an AI intelligence platform built specifically for small businesses — we score AI tools, curate prompts, and share insights using real community data from Reddit, Hacker News, Product Hunt, Indie Hackers, and AlternativeTo. Zero affiliate links. Zero sponsored placements. Our scoring uses a proprietary 5-Layer Community Intelligence system with full methodology transparency — not vendor-submitted reviews.</p>
                 </details>
                 <details class="faq-item">
                     <summary class="faq-q">Who is AlignAI built for?</summary>
-                    <p class="faq-a">AlignAI is built for small business owners, solopreneurs, and lean teams who need to pick the right AI tool without wading through vendor-sponsored review sites. Every score, verdict and review is filtered for small-business context — so you see what works at 1–50 people, not at Fortune 500 scale.</p>
+                    <p class="faq-a">AlignAI is built for small business owners, solopreneurs, and lean teams navigating AI without a CTO. Whether you're choosing an AI tool, copying a field-tested prompt, or acting on community insights, everything is filtered for small-business context — so you see what works at 1–50 people, not at Fortune 500 scale.</p>
                 </details>
                 <details class="faq-item">
                     <summary class="faq-q">How often are AI tool scores updated?</summary>
