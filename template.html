@@ -629,9 +629,9 @@
             <a href="https://alignai.business" class="logo">
                 <span class="bracket">[</span><span class="align">align</span><span class="ai">ai</span><span class="business">.business</span><span class="bracket">]</span>
             </a>
-            <!-- PRE-LAUNCH: scroll to signup. POST-LAUNCH: swap to app.alignai.business -->
+            <!-- App paused for DB integrity work — route nav CTA to #signup. Prompt Hub stays live. -->
             <div style="display: flex; gap: 10px; align-items: center;">
-                <a href="https://app.alignai.business" class="nav-cta">Explore tools</a>
+                <a href="#signup" class="nav-cta">Join the Waitlist</a>
                 <a href="https://prompts.alignai.business" class="nav-cta">Explore prompts</a>
             </div>
         </nav>
@@ -644,7 +644,7 @@
                 AI tools, prompts, and insights — scored by real users, not sponsors. Built for small businesses navigating AI without a CTO.
             </p>
             <div class="hero-buttons">
-                <a href="https://app.alignai.business" class="btn-primary btn-hero-cta">Get Started Free</a>
+                <a href="#signup" class="btn-primary btn-hero-cta">Join the Waitlist</a>
             </div>
         </section>
 
@@ -683,7 +683,7 @@
 
             <!-- 3. CTA button (narrow, centered) -->
             <div style="max-width: 620px; margin: 0 auto; text-align: center;">
-                <a href="https://app.alignai.business" class="btn-primary">Explore AI Tools &rarr;</a>
+                <a href="#signup" class="btn-primary">Join the Waitlist</a>
             </div>
         </section>
 
@@ -704,8 +704,8 @@
             <h2 class="section-title">Top-rated by the community</h2>
             <div class="tools-grid">
                 {% for tool in top_tools %}
-                <!-- PRE-LAUNCH: scroll to signup. POST-LAUNCH: swap href to app.alignai.business/?tool={{ tool.slug }} -->
-                <a href="https://app.alignai.business" class="tool-card">
+                <!-- App paused — tool cards route to #signup. POST-LAUNCH: swap href to app.alignai.business/?tool={{ tool.slug }} -->
+                <a href="#signup" class="tool-card">
                     <div class="tool-header">
                         <span class="tool-name">{{ tool.name }}</span>
                         <span class="score-badge {% if tool.critics_score >= 75 %}score-green{% elif tool.critics_score >= 50 %}score-amber{% else %}score-red{% endif %}">{{ tool.critics_score }}</span>
@@ -722,12 +722,12 @@
             <h2 class="section-title">Browse by category</h2>
             <div class="category-pills">
                 {% for cat_name, cat_count in top_categories %}
-                <!-- PRE-LAUNCH: scroll to signup. POST-LAUNCH: swap href to app.alignai.business/?cat=... -->
-                <a href="https://app.alignai.business" class="cat-pill">
+                <!-- App paused — category pills route to #signup. POST-LAUNCH: swap href to app.alignai.business/?cat=... -->
+                <a href="#signup" class="cat-pill">
                     {{ cat_name }} <span class="count">{{ cat_count }}</span>
                 </a>
                 {% endfor %}
-                <a href="https://app.alignai.business" class="cat-pill cat-pill-cta">
+                <a href="#signup" class="cat-pill cat-pill-cta">
                     View all {{ total_categories }} categories
                 </a>
             </div>
@@ -783,6 +783,7 @@
         <!-- EMAIL CAPTURE -->
         <section class="email-section" id="signup">
             <h2 class="email-title">Stay in the loop.</h2>
+            <p class="email-body">We're tuning our scoring engine so every verdict holds up under scrutiny. Drop your email and we'll let you know the moment we re-open.</p>
             <p class="email-body">Get a weekly digest of top-scored tools and new community reviews. No spam. Unsubscribe anytime.</p>
             <form class="email-form" id="signup-form">
                 <input type="email" class="email-input" placeholder="you@yourbusiness.com" required id="email-field">
